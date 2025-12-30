@@ -1,25 +1,24 @@
 package com.workintech.cylinder;
 
+import java.util.Locale;
+
 public class Circle {
+
+    static {
+        Locale.setDefault(Locale.US);
+    }
+
     private double radius;
 
     public Circle(double radius){
-        if (radius < 0){
-            this.radius = 0;
-        } else {
-            this.radius = radius;
-        }
+        this.radius = Math.max(radius, 0);
     }
 
     public double getRadius() {
         return radius;
     }
 
-    public void setRadius(double radius) {
-        this.radius = (radius < 0) ? 0 : radius;
-    }
-
     public double getArea() {
-        return getRadius() * getRadius() * Math.PI;
+        return radius * radius * Math.PI;
     }
 }
